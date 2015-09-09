@@ -17,7 +17,7 @@
                 "Free",
                 "Shared",
                 "Basic",
-                "Standard", 
+                "Standard",
                 "Premium"
             ],
             "defaultValue": "Free"
@@ -151,7 +151,7 @@
                     "name": "appsettings",
                     "type": "config",
                     "dependsOn": [
-                        "[resourceId('Microsoft.Web/Sites', variables('apiSiteName'))]",
+                        "[resourceId('Microsoft.Web/Sites', variables('apiSiteName'))]"
                     ],
                     "properties": {
                         "PROJECT": "src\\MultiChannelToDo\\MultiChannelToDo.csproj",
@@ -167,7 +167,10 @@
                         "[resourceId('Microsoft.Sql/servers', parameters('sqlServerName'))]"
                     ],
                     "properties": {
-                        "MultiChannelToDoContext": { "value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('sqlServerName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('sqlDbName'), ';User Id=', parameters('sqlServerAdminLogin'), '@', parameters('sqlServerName'), ';Password=', parameters('sqlServerAdminPassword'), ';')]", "type": "SQLAzure" }
+                        "MultiChannelToDoContext": {
+                            "value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('sqlServerName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('sqlDbName'), ';User Id=', parameters('sqlServerAdminLogin'), '@', parameters('sqlServerName'), ';Password=', parameters('sqlServerAdminPassword'), ';')]",
+                            "type": "SQLAzure"
+                        }
                     }
                 },
                 {
@@ -177,7 +180,7 @@
                     "dependsOn": [
                         "[resourceId('Microsoft.Web/Sites', variables('apiSiteName'))]",
                         "[resourceId('Microsoft.Web/Sites/config', variables('apiSiteName'), 'appsettings')]",
-                        "[resourceId('Microsoft.Web/Sites/config', variables('apiSiteName'), 'connectionstrings')]",
+                        "[resourceId('Microsoft.Web/Sites/config', variables('apiSiteName'), 'connectionstrings')]"
                     ],
                     "properties": {
                         "RepoUrl": "[parameters('repoUrl')]",
@@ -204,7 +207,7 @@
                     "name": "appsettings",
                     "type": "config",
                     "dependsOn": [
-                        "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]",
+                        "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
                     ],
                     "properties": {
                         "PROJECT": "src\\MultiChannelToDo.Web\\app",
