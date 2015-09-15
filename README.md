@@ -1,5 +1,5 @@
 ---
-services: app-service\web, mysql-database
+services: app-service\web, mssql-database
 platforms: dotnet
 author: syntaxc4
 ---
